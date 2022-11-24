@@ -42,6 +42,7 @@ function cellClicked(elCell, i, j, ev) {
     if (currCell.isMine) {
         currCell.isShown = true
         elCell.innerText = MINE
+        elCell.style.backgroundColor = '#CC0C1F'
         gGame.shownCount++
         gGame.lifes++
         countLifes()
@@ -93,8 +94,9 @@ function expandShown(board, x, y) {
 
             board[i][j].isShown = true
             gGame.shownCount++
-
-            elCell.innerHTML = NegsCount(i, j, board)
+            if (board[i][j].minesAroundCount === 0) {
+                elCell.style.backgroundColor = '#E3A835'
+            } else elCell.innerHTML = NegsCount(i, j, board)
             if (!board[i][j].minesAroundCount) expandShown(board, i, j)
             showCount()
 
@@ -105,11 +107,10 @@ function expandShown(board, x, y) {
 
 function checkGameOver() {
     if (gGame.shownCount + gGame.markedCount === gLevel.size * gLevel.size) {
-        document.querySelector('.btnRest').innerText = '😎'
-        document.querySelector('h3').innerText = `yayay you win`
         gGame.isOn = false
+        win()
         clearInterval(gIntervald)
     }
-    // }
+    
 }
 

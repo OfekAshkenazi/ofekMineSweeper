@@ -48,7 +48,7 @@ function restTimer() {
 
 function showCount() {
     const elScore = document.querySelector('.score')
-    elScore.innerText = `Your Score: ${gGame.shownCount+gGame.markedCount}`
+    elScore.innerText = `Your Score: ${gGame.shownCount + gGame.markedCount}`
 
 }
 function restGame() {
@@ -78,9 +78,49 @@ function countLifes() {
     if (gGame.lifes === 3) {
         gGame.isOn = false
         if (!gGame.isOn) clearInterval(gIntervald)
-        document.querySelector('.btnRest').innerText = '💥'
-        document.querySelector('h3').innerText = `hmmmm you lost`
+        lost()
     }
 }
+function win() {
+    document.querySelector('.btnRest').innerText = '🥳'
+    document.querySelector('h3').innerText = `yayay you win`
+}
+function lost() {
+    document.querySelector('.btnRest').innerText = '🤯'
+    document.querySelector('h3').innerText = `hmmmm you lost`
+}
+
+function toggleDarkMode() {
+    const blackIsColor = '#191A1C'
+    const whiteColor = 'white'
+    var elContainer = document.querySelector('.gameContainer')
+    if (!isDarkMode) {
+        isDarkMode = true
+        elContainer.style.backgroundColor = `${blackIsColor}`
+        elContainer.style.border = `${blackIsColor}`
+        elContainer.style.boxShadow = '0 0 5px #294A52, 0 0 25px #294A52, 0 0 50px #294A52, 0 0 100px #294A52'
+        document.querySelector('body').style.backgroundColor = `${blackIsColor}`
+        document.querySelector('.timer').style.color = `${whiteColor}`
+        document.querySelector('.score').style.color = `${whiteColor}`
+        document.querySelector('.darkMode').innerText = 'LightMode'
+        document.querySelector('.darkMode').style.backgroundColor = `${whiteColor}`
+
+    } else {
+        isDarkMode = false
+        elContainer.style.backgroundColor = 'rgb(193, 141, 79)'
+        elContainer.style.border = 'rgb(242, 176, 96)'
+        elContainer.style.boxShadow = '0 0 5px #E3A835, 0 0 25px #E3A835, 0 0 50px #E3A835, 0 0 100px #E3A835'
+        document.querySelector('body').style.backgroundColor = 'rgb(147, 91, 24)'
+        document.querySelector('.timer').style.color = '#051538'
+        document.querySelector('.score').style.color = '#051538'
+        document.querySelector('.darkMode').innerText = 'DarkMode'
+        document.querySelector('.darkMode').style.backgroundColor = 'rgb(50, 86, 97)'
 
 
+    }
+
+}
+
+function showAllMinsOnMap() {
+    
+}
