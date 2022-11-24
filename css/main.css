@@ -1,0 +1,92 @@
+body {
+    margin: auto;
+    background-color: bisque;
+}
+
+.gameContainer {
+    margin: auto;
+    /* margin: 10vw; */
+    margin-top: 0.5rem;
+    max-width: 600px;
+    min-width: 300px;
+    min-height: 650px;
+    background-color: bisque;
+    border: 5.5px solid rgb(242, 176, 96);
+    box-shadow: 0 0 5px #E3A835, 0 0 25px #E3A835, 0 0 50px #E3A835, 0 0 100px #E3A835;
+}
+
+.headsContainer {
+    display: inline-block;
+    max-width: 700px;
+    min-width: 400px;
+    min-height: 40px;
+}
+
+.timer {
+    text-align: center;
+}
+
+.btnRest {
+    position: relative;
+    font-size: larger;
+    margin-left: auto;
+}
+
+.score {
+    margin-left: auto;
+}
+
+.board {
+    position: relative;
+    top: px;
+
+}
+
+.btnBox {
+    position: relative;
+    /* place-content: center; */
+    left: 2;
+    max-height: 400px;
+    min-width: 100px;
+    min-height: 50px;
+
+}
+
+button {
+    background-color: rgb(50, 86, 97);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: larger;
+    font-family: sans-serif;
+    border-radius: 25%;
+}
+
+.lifes {
+    display: inline-block;
+    min-width: 20px;
+    cursor: pointer;
+}
+
+table {
+    margin: auto;
+}
+
+td {
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    background-color: rgb(83, 172, 172);
+}
+
+td:hover {
+
+    box-shadow: 0 0 5px rgb(142, 231, 231), 0 0 25px rgb(138, 235, 235), 0 0 50px rgb(134, 244, 244), 0 0 100px rgb(178, 241, 241), 0 0 150px rgb(188, 234, 234);
+
+
+
+}
+
+footer {
+    text-align: center;
+}

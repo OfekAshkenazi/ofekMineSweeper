@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Minesweeper</title>
+</head>
+
+<body onload="initGame()">
+    <div class="gameContainer">
+        <div style="display: flex;" class="headsContainer">
+            <p class="timer">Time: 00:00</p>
+            <button class="btnRest" onclick="restGame()">🤔</button>
+            <p class="score">Your Score: 0</p>
+        </div>
+        <div class="btnBox">
+            <button class="btn btn1" onclick="easyLevel()">easy</button>
+            <button class="btn btn2" onclick="HardLevel()">hard</button>
+            <button class="btn btn3" onclick="superHardLevel()">super</button>
+            <p class="lifes"></p>
+            <!-- <button class="btn btn4" onclick="toggleDarkMode()">DarkMode</button> -->
+        </div>
+        <div class="board">
+
+
+        </div>
+
+
+        <footer>
+            <h1>Made By Ofek Ashkenazi</h1>
+            <h3>copyRight or coffy right 😫</h3>
+        </footer>
+
+
+        <script src="js/levels.js"></script>
+        <script src="js/utils.js"></script>
+        <script src="js/boardFunction.js"></script>
+        <script src="js/main.js"></script>
+</body>
+
+</html>
