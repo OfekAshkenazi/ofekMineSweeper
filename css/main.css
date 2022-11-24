@@ -29,11 +29,12 @@ body {
 .btnRest {
     position: relative;
     font-size: larger;
-    margin-left: auto;
+    margin-left: 7.5rem;
 }
 
 .score {
-    margin-left: auto;
+    margin-left: 7.5rem;
+
 }
 
 .board {
@@ -73,8 +74,8 @@ table {
 
 td {
     cursor: pointer;
-    width: 26px;
-    height: 26px;
+    width: 32px;
+    height: 35px;
     text-align: center;
     background-color: rgb(83, 172, 172);
 }

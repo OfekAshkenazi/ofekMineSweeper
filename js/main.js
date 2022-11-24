@@ -28,7 +28,7 @@ function cellClicked(elCell, i, j, ev) {
     var currCell = gBoard[i][j]
     if (!gGame.isOn) return
     countClicks++
-    if (ev.which === 3) return cellMarked(elCell, currCell)
+    if (ev.button === 2) return cellMarked(elCell, currCell)
 
     if (countClicks === 1) {
         elCell.innerText = '0'
@@ -66,14 +66,14 @@ function cellMarked(elCell, cell) {
     if (!cell.isMarked) {
         cell.isMarked = true
         cell.isShown = true
-        elCell.innerText = flag
+        elCell.innerHTML = flag
         gGame.markedCount++
         showCount()
         checkGameOver()
     } else {
         cell.isMarked = false
         cell.isShown = false
-        elCell.innerText = ''
+        elCell.innerHTML = ''
         gGame.markedCount--
         showCount()
 
