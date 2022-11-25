@@ -36,7 +36,7 @@ function showTimer() {
 
     }), 10
 }
-
+/// for fixing innerText
 function restTimer() {
     var elTimer = document.querySelector('.timer')
     elTimer.innerText = `Time: 00:00`
@@ -45,12 +45,14 @@ function restTimer() {
 
 
 }
-
+//// for show SHOWNCOUNT OF gGAME
 function showCount() {
     const elScore = document.querySelector('.score')
     elScore.innerText = `Your Score: ${gGame.shownCount + gGame.markedCount}`
 
 }
+
+//// REST THE GAME AND INNERTEXT very like like inint but for every single lvl
 function restGame() {
     document.querySelector('.score').innerText = `Your Score: 0`
     document.querySelector('h3').innerText = `copyRight or coffy right 😫`
@@ -65,6 +67,8 @@ function restGame() {
     initGame()
 
 }
+
+//// FOR FIXING INNERTEXT OF LIFE
 function renderLife() {
     const elLifeBar = document.querySelector('.lifes')
     elLifeBar.innerText = 'you lost!'
@@ -73,7 +77,7 @@ function renderLife() {
     else if (gGame.lifes === 0) elLifeBar.innerText = '💖💖💖'
 
 }
-
+/// FOR LOSE GAME.
 function countLifes() {
     if (gGame.lifes === 3) {
         gGame.isOn = false
@@ -81,46 +85,71 @@ function countLifes() {
         lost()
     }
 }
+/// INNERTEXT FOR WIN
 function win() {
     document.querySelector('.btnRest').innerText = '🥳'
     document.querySelector('h3').innerText = `yayay you win`
 }
+/// INNERTEXT FOR LOSE
 function lost() {
     document.querySelector('.btnRest').innerText = '🤯'
     document.querySelector('h3').innerText = `hmmmm you lost`
-}
+    showAllMinsOnMap(gBoard)
 
+}
+/// TOGGLE DARK MODE . TO DO: MAKE THE TD CHANGE COLOR ALSO
 function toggleDarkMode() {
     const blackIsColor = '#191A1C'
     const whiteColor = 'white'
+    const btnColorBefore = '#325661'
     var elContainer = document.querySelector('.gameContainer')
     if (!isDarkMode) {
         isDarkMode = true
         elContainer.style.backgroundColor = `${blackIsColor}`
         elContainer.style.border = `${blackIsColor}`
         elContainer.style.boxShadow = '0 0 5px #294A52, 0 0 25px #294A52, 0 0 50px #294A52, 0 0 100px #294A52'
+        elContainer.style.border = `5.5px solid #f5efe8`
         document.querySelector('body').style.backgroundColor = `${blackIsColor}`
         document.querySelector('.timer').style.color = `${whiteColor}`
         document.querySelector('.score').style.color = `${whiteColor}`
         document.querySelector('.darkMode').innerText = 'LightMode'
         document.querySelector('.darkMode').style.backgroundColor = `${whiteColor}`
+        document.querySelector('.btn1').style.backgroundColor = `${whiteColor}`
+        document.querySelector('.btn2').style.backgroundColor = `${whiteColor}`
+        document.querySelector('.btn3').style.backgroundColor = `${whiteColor}`
 
     } else {
         isDarkMode = false
         elContainer.style.backgroundColor = 'rgb(193, 141, 79)'
         elContainer.style.border = 'rgb(242, 176, 96)'
         elContainer.style.boxShadow = '0 0 5px #E3A835, 0 0 25px #E3A835, 0 0 50px #E3A835, 0 0 100px #E3A835'
+        elContainer.style.border = `5.5px solid #f2b060`
         document.querySelector('body').style.backgroundColor = 'rgb(147, 91, 24)'
         document.querySelector('.timer').style.color = '#051538'
         document.querySelector('.score').style.color = '#051538'
         document.querySelector('.darkMode').innerText = 'DarkMode'
         document.querySelector('.darkMode').style.backgroundColor = 'rgb(50, 86, 97)'
-
+        document.querySelector('.btn1').style.backgroundColor = `${btnColorBefore}`
+        document.querySelector('.btn2').style.backgroundColor = `${btnColorBefore}`
+        document.querySelector('.btn3').style.backgroundColor = `${btnColorBefore}`
 
     }
 
 }
+/// THIS FUNCTION JUST SHOWING ALL MINES ON BOARD. ACTIVATED WHEN USER LOSE :) LIKE IN THE REAL GAME
+function showAllMinsOnMap(board) {
+    // var minesOnMap = 0
+    for (var i = 0; i < board.length; i++) {
+        for (var j = 0; j < board[0].length; j++) {
+            var currCell = board[i][j]
+            if (currCell.isMine) {
+                // minesOnMap++
+                var elCell = document.querySelector(`.cell-${i}-${j}`)
+                elCell.innerText = MINE
+                elCell.style.backgroundColor = '#CC0C1F'
 
-function showAllMinsOnMap() {
-    
+            }
+        }
+    }
+
 }

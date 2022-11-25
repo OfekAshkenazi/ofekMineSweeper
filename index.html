@@ -13,16 +13,16 @@
     <div class="gameContainer">
         <div style="display: flex;" class="headsContainer">
             <p class="timer">Time: 00:00</p>
-            <button class="btnRest" onclick="restGame()">🤔</button>
+            <button title="RestButton" class="btnRest" onclick="restGame()">🤔</button>
             <p class="score">Your Score: 0</p>
         </div>
         <div class="btnBox">
-            <button class="btn btn1" onclick="lvlUpdate(this)">easy</button>
-            <button class="btn btn2" onclick="lvlUpdate(this)">hard</button>
-            <button class="btn btn3" onclick="lvlUpdate(this)">super</button>
+            <button title="4*4,2:mines" class="btn btn1" onclick="lvlUpdate(this)">easy</button>
+            <button title="8*8,14:mines" class="btn btn2" onclick="lvlUpdate(this)">hard</button>
+            <button title="12*12,32:mines" class="btn btn3" onclick="lvlUpdate(this)">super</button>
             <p class="lifes"></p>
             <!-- <button class="hints" onclick="Hints()">💡💡💡</button> -->
-            <button class="darkMode" onclick="toggleDarkMode()">DarkMode</button>
+            <button title="toggle" class="darkMode" onclick="toggleDarkMode()">DarkMode</button>
         </div>
         <div class="board">
 

@@ -4,9 +4,10 @@ window.addEventListener("contextmenu", e => e.preventDefault());
 const MINE = '💣'
 const flag = '🚩'
 var gIntervald
-var countClicks = 0
+var countClicks = 0  //// no need that.... can put it inside gGame
 var gBoard
 var cell
+// var gHintIsOn = false  not working yet
 var gGame = {
     isOn: true,
     shownCount: 0,
@@ -25,19 +26,29 @@ function initGame() {
 }
 
 function cellClicked(elCell, i, j, ev) {
+
     var currCell = gBoard[i][j]
     if (!gGame.isOn) return
+    // Hints(gBoard, i, j) not working yet
+    // if(gHintIsOn)
     countClicks++
     if (ev.button === 2) return cellMarked(elCell, currCell)
 
     if (countClicks === 1) {
-        elCell.innerText = '0'
         showTimer()
         atFirstClick(gBoard)
+        currCell.minesAroundCount = 0
+        currCell.isMine = false
+
     }
     if (currCell.isShown || currCell.isMarked) return
-    if (currCell.minesAroundCount === 0) return expandShown(gBoard, i, j)
 
+    if (currCell.minesAroundCount === 0) {
+        elCell.style.innerText = ''
+        elCell.style.backgroundColor = '#E3A835'
+        return expandShown(gBoard, i, j)
+
+    }
     // if (currCell.isMarked) return
     if (currCell.isMine) {
         currCell.isShown = true
@@ -55,13 +66,13 @@ function cellClicked(elCell, i, j, ev) {
     gGame.shownCount++
     currCell.isShown = true
     elCell.innerText = currCell.minesAroundCount
+    if (currCell.minesAroundCount === 0) elCell.style.innerText = ''
     showCount()
     checkGameOver()
     // console.log(gBoard)
 
 
 }
-// console.log(cellMarked(elCell))
 
 function cellMarked(elCell, cell) {
     if (!cell.isMarked) {
@@ -81,6 +92,7 @@ function cellMarked(elCell, cell) {
     }
 }
 
+//// mineswepper algoritem
 function expandShown(board, x, y) {
     if (board[x][y].isMine) return
     for (var i = x - 1; i <= x + 1; i++) {
@@ -105,12 +117,13 @@ function expandShown(board, x, y) {
     }
 }
 
+// function for checking win 
 function checkGameOver() {
     if (gGame.shownCount + gGame.markedCount === gLevel.size * gLevel.size) {
         gGame.isOn = false
         win()
         clearInterval(gIntervald)
     }
-    
+
 }
 

@@ -11,7 +11,8 @@ body {
     min-width: 300px;
     min-height: 650px;
     background-color: rgb(193, 141, 79);
-    border: 5.5px solid rgb(242, 176, 96);
+    /* 242 176 96 */
+    border: 5.5px solid #f2b060;
     box-shadow: 0 0 5px #E3A835, 0 0 25px #E3A835, 0 0 50px #E3A835, 0 0 100px #E3A835;
 }
 
@@ -57,7 +58,7 @@ body {
 }
 
 .btnBox button {
-    background-color: rgb(50, 86, 97);
+    background-color: #325661;
     cursor: pointer;
     font-weight: bold;
     font-size: larger;
@@ -88,12 +89,15 @@ body {
 }
 
 table {
+    /* table-layout: auto; */
+    width: 405px;
+    height: 500px;
     margin: auto;
 }
 
 td {
     cursor: pointer;
-    width: 32px;
+    width: 35px;
     height: 35px;
     text-align: center;
     background-color: rgb(216, 90, 17);
