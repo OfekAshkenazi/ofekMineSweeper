@@ -113,7 +113,7 @@ td {
     height: 35px;
     /* min-width: 35px; */
     text-align: center;
-    background-color: rgb(234, 166, 127);
+    background-color: #eaa67f;
     transition: 0.5s;
     font-weight:bold;
     font-size: 1rem;

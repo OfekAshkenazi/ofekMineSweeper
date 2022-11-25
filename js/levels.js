@@ -1,4 +1,3 @@
-var isDarkMode = false
 var gLevel = {
     size: 5,
     mines: 5
@@ -10,7 +9,6 @@ function lvlUpdate(elBtn) {
             size: 5,
             mines: 3
         }
-
     } else if (elBtn.innerText === 'hard') {
         gLevel = {
             size: 8,
@@ -22,7 +20,6 @@ function lvlUpdate(elBtn) {
             mines: 28
         }
     }
-
     restGame()
 
 }

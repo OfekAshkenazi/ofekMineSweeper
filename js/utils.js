@@ -1,4 +1,7 @@
 'use strict'
+var isDarkMode = false
+
+
 
 //// get random 
 function getRandomInt(min, max) {
@@ -63,15 +66,14 @@ function restGame() {
         secsPassed: 0,
         lifes: 0
     }
-
     initGame()
 
 }
-
 //// FOR FIXING INNERTEXT OF LIFE
 function renderLife() {
     const elLifeBar = document.querySelector('.lifes')
     elLifeBar.innerText = 'you lost!'
+    elLifeBar.style.color = '#697bf2'
     if (gGame.lifes === 2) elLifeBar.innerText = '💖'
     else if (gGame.lifes === 1) elLifeBar.innerText = '💖💖'
     else if (gGame.lifes === 0) elLifeBar.innerText = '💖💖💖'
@@ -97,20 +99,22 @@ function lost() {
     showAllMinsOnMap(gBoard)
 
 }
-/// TOGGLE DARK MODE . TO DO: MAKE THE TD CHANGE COLOR ALSO
+
+/// TOGGLE DARK MODE . done: MAKE THE TD CHANGE COLOR ALSO to do: to know how to conenct it right to boolean
 function toggleDarkMode() {
     const blackIsColor = '#191A1C'
     const whiteColor = 'white'
     const blueIsColor = '#697bf2'
     const btnColorBefore = '#325661'
-    const ninga = '🥷'
+    const elCells = document.querySelectorAll('.tdCells') /// the rnder board messing me up .....so drak mode td only for one per click
     var elContainer = document.querySelector('.gameContainer')
-    if (!isDarkMode) {
-        isDarkMode = true
+
+    if (isDarkMode === false) {
         elContainer.style.backgroundColor = `${blackIsColor}`
         elContainer.style.border = `${blackIsColor}`
         elContainer.style.boxShadow = '0 0 5px #294A52, 0 0 25px #294A52, 0 0 50px #294A52, 0 0 100px #294A52'
         elContainer.style.border = `5.5px solid #f5efe8`
+        elCells.forEach(changeBackGroundColorToDarkMode)
         document.querySelector('body').style.backgroundColor = `${blackIsColor}`
         document.querySelector('.timer').style.color = `${whiteColor}`
         document.querySelector('.score').style.color = `${whiteColor}`
@@ -120,15 +124,15 @@ function toggleDarkMode() {
         document.querySelector('.btn2').style.backgroundColor = `${blueIsColor}`
         document.querySelector('.btn3').style.backgroundColor = `${blueIsColor}`
         document.querySelector('footer').style.color = `${blueIsColor}`
-        document.querySelector('.btnRest').innerHTML = `${ninga}`
+        isDarkMode = true
 
 
     } else {
-        isDarkMode = false
         elContainer.style.backgroundColor = 'rgb(193, 141, 79)'
         elContainer.style.border = 'rgb(242, 176, 96)'
         elContainer.style.boxShadow = '0 0 5px #E3A835, 0 0 25px #E3A835, 0 0 50px #E3A835, 0 0 100px #E3A835'
         elContainer.style.border = `5.5px solid #f2b060`
+        elCells.forEach(changeBackGroundColorToLightMode)
         document.querySelector('body').style.backgroundColor = 'rgb(147, 91, 24)'
         document.querySelector('.timer').style.color = '#051538'
         document.querySelector('.score').style.color = '#051538'
@@ -138,9 +142,7 @@ function toggleDarkMode() {
         document.querySelector('.btn2').style.backgroundColor = `${btnColorBefore}`
         document.querySelector('.btn3').style.backgroundColor = `${btnColorBefore}`
         document.querySelector('footer').style.color = `${blackIsColor}`
-        document.querySelector('.btnRest').innerHTML = `🤔`
-
-
+        isDarkMode = false
 
     }
 
@@ -171,9 +173,18 @@ function colorByMinesCount(elCell) {
     else if (elCell.innerText === '3') elCell.style.color = 'red'
     else if (elCell.innerText === '4') elCell.style.color = 'purple'
     else if (elCell.innerText === '0') {
-        elCell.style.backgroundColor = '#E3A835'
+        elCell.style.backgroundColor = '#eaa67f54'
         elCell.innerText = ''
-        
+
     }
 
 }
+
+function changeBackGroundColorToDarkMode(element) {
+    element.style.backgroundColor = '#093148'
+}
+/// vary ty to web dev simplifles
+function changeBackGroundColorToLightMode(element) {
+    element.style.backgroundColor = '#E3A835'
+}
+console.log(isDarkMode)

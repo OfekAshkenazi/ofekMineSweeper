@@ -45,7 +45,8 @@ function renderBoard(board) {
         strHTML += '<tr>'
         for (var j = 0; j < board[0].length; j++) {
             var className = `cell-${i}-${j}`
-            strHTML += `<td class="${className}" class="tds" onmousedown="cellClicked(this, ${i}, ${j}, event)"> </td>`
+            const secondClassName = ' tdCells'
+            strHTML += `<td class="${className + secondClassName}"  onmousedown="cellClicked(this, ${i}, ${j}, event)"> </td>`
 
         }
 

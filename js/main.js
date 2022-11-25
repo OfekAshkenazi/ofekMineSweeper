@@ -23,6 +23,7 @@ function initGame() {
     restTimer()
     clearInterval(gIntervald)
     renderLife()
+
 }
 
 function cellClicked(elCell, i, j, ev) {
@@ -32,6 +33,7 @@ function cellClicked(elCell, i, j, ev) {
     // Hints(gBoard, i, j) not working yet
     // if(gHintIsOn)
     countClicks++
+    if (currCell.isShown || currCell.isMarked) return
     if (ev.button === 2) return cellMarked(elCell, currCell)
 
     if (countClicks === 1) {
@@ -41,11 +43,11 @@ function cellClicked(elCell, i, j, ev) {
         currCell.isMine = false
 
     }
-    if (currCell.isShown || currCell.isMarked) return
 
     if (currCell.minesAroundCount === 0) {
         elCell.style.innerText = ''
-        elCell.style.backgroundColor = '#E3A835'
+        elCell.style.backgroundColor = '#eaa67f54'
+        elCell.style.boxShadow = 'none'
         return expandShown(gBoard, i, j)
 
     }
