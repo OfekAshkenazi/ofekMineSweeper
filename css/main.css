@@ -8,7 +8,7 @@ body {
     /* margin: 10vw; */
     margin-top: 0.5rem;
     max-width: 600px;
-    min-width: 300px;
+    min-width: 400px;
     min-height: 650px;
     background-color: rgb(193, 141, 79);
     /* 242 176 96 */
@@ -51,7 +51,6 @@ body {
 
 .btnBox {
     position: relative;
-    left: 2;
     max-height: 400px;
     min-width: 100px;
     min-height: 50px;
@@ -68,15 +67,26 @@ body {
 
 }
 
+.btn {
+    border: none;
+    padding: 0.4rem;
+
+}
+
 .lifes {
     display: inline-block;
     min-width: 20px;
 
 }
 
-.btn4 {
+.darkMode {
     display: inline-block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
     cursor: pointer;
+    border: none;
+
 }
 
 .hints {
@@ -90,27 +100,31 @@ body {
 
 table {
     /* table-layout: auto; */
-    width: 405px;
+    max-width: 600px;
+    min-width: 405px;
     height: 500px;
     margin: auto;
 }
 
 td {
+    pad: 0.3px;
     cursor: pointer;
     width: 35px;
     height: 35px;
+    /* min-width: 35px; */
     text-align: center;
-    background-color: rgb(216, 90, 17);
+    background-color: rgb(234, 166, 127);
+    transition: 0.5s;
+    font-weight:bold;
+    font-size: 1rem;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 td:hover {
-
-    box-shadow: 0 0 5px rgb(142, 231, 231), 0 0 25px rgb(138, 235, 235), 0 0 50px rgb(134, 244, 244), 0 0 100px rgb(178, 241, 241), 0 0 150px rgb(188, 234, 234);
-
-
-
+    box-shadow: 0 0 5px #074e14, 0px 0px 25px #064306, 0 0 50px #129714, 0 0 100px #0a5715;
 }
 
 footer {
     text-align: center;
 }
+

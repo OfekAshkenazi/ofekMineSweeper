@@ -67,6 +67,7 @@ function cellClicked(elCell, i, j, ev) {
     currCell.isShown = true
     elCell.innerText = currCell.minesAroundCount
     if (currCell.minesAroundCount === 0) elCell.style.innerText = ''
+    colorByMinesCount(elCell)
     showCount()
     checkGameOver()
     // console.log(gBoard)
@@ -106,9 +107,8 @@ function expandShown(board, x, y) {
 
             board[i][j].isShown = true
             gGame.shownCount++
-            if (board[i][j].minesAroundCount === 0) {
-                elCell.style.backgroundColor = '#E3A835'
-            } else elCell.innerHTML = NegsCount(i, j, board)
+            elCell.innerHTML = NegsCount(i, j, board)
+            colorByMinesCount(elCell)
             if (!board[i][j].minesAroundCount) expandShown(board, i, j)
             showCount()
 
@@ -116,7 +116,6 @@ function expandShown(board, x, y) {
         ///// i hate this function have a good day !
     }
 }
-
 // function for checking win 
 function checkGameOver() {
     if (gGame.shownCount + gGame.markedCount === gLevel.size * gLevel.size) {

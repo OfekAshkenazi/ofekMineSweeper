@@ -101,7 +101,9 @@ function lost() {
 function toggleDarkMode() {
     const blackIsColor = '#191A1C'
     const whiteColor = 'white'
+    const blueIsColor = '#697bf2'
     const btnColorBefore = '#325661'
+    const ninga = '🥷'
     var elContainer = document.querySelector('.gameContainer')
     if (!isDarkMode) {
         isDarkMode = true
@@ -113,10 +115,13 @@ function toggleDarkMode() {
         document.querySelector('.timer').style.color = `${whiteColor}`
         document.querySelector('.score').style.color = `${whiteColor}`
         document.querySelector('.darkMode').innerText = 'LightMode'
-        document.querySelector('.darkMode').style.backgroundColor = `${whiteColor}`
-        document.querySelector('.btn1').style.backgroundColor = `${whiteColor}`
-        document.querySelector('.btn2').style.backgroundColor = `${whiteColor}`
-        document.querySelector('.btn3').style.backgroundColor = `${whiteColor}`
+        document.querySelector('.darkMode').style.backgroundColor = `${blueIsColor}`
+        document.querySelector('.btn1').style.backgroundColor = `${blueIsColor}`
+        document.querySelector('.btn2').style.backgroundColor = `${blueIsColor}`
+        document.querySelector('.btn3').style.backgroundColor = `${blueIsColor}`
+        document.querySelector('footer').style.color = `${blueIsColor}`
+        document.querySelector('.btnRest').innerHTML = `${ninga}`
+
 
     } else {
         isDarkMode = false
@@ -132,6 +137,10 @@ function toggleDarkMode() {
         document.querySelector('.btn1').style.backgroundColor = `${btnColorBefore}`
         document.querySelector('.btn2').style.backgroundColor = `${btnColorBefore}`
         document.querySelector('.btn3').style.backgroundColor = `${btnColorBefore}`
+        document.querySelector('footer').style.color = `${blackIsColor}`
+        document.querySelector('.btnRest').innerHTML = `🤔`
+
+
 
     }
 
@@ -150,6 +159,21 @@ function showAllMinsOnMap(board) {
 
             }
         }
+    }
+
+}
+
+//// bring color to the td by minescount like in the game 1 blue 2 green 3 red 4 pruple i think... :)))
+function colorByMinesCount(elCell) {
+    elCell.style.boxShadow = 'none'
+    if (elCell.innerText === '1') elCell.style.color = 'blue'
+    else if (elCell.innerText === '2') elCell.style.color = 'green'
+    else if (elCell.innerText === '3') elCell.style.color = 'red'
+    else if (elCell.innerText === '4') elCell.style.color = 'purple'
+    else if (elCell.innerText === '0') {
+        elCell.style.backgroundColor = '#E3A835'
+        elCell.innerText = ''
+        
     }
 
 }
