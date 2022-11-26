@@ -1,0 +1,132 @@
+body {
+    margin: auto;
+    background-color: rgb(147, 91, 24);
+}
+
+.gameContainer {
+    margin: auto;
+    /* margin: 10vw; */
+    margin-top: 0.5rem;
+    max-width: 600px;
+    min-width: 400px;
+    min-height: 650px;
+    background-color: rgb(193, 141, 79);
+    /* 242 176 96 */
+    border: 5.5px solid #f2b060;
+    box-shadow: 0 0 5px #E3A835, 0 0 25px #E3A835, 0 0 50px #E3A835, 0 0 100px #E3A835;
+}
+
+.headsContainer {
+    display: inline-block;
+    max-width: 700px;
+    min-width: 400px;
+    min-height: 40px;
+}
+
+.timer {
+    text-align: center;
+    color: #051538;
+}
+
+.btnRest {
+    position: relative;
+    font-size: 40px;
+    margin-left: 7.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.score {
+    margin-left: 7.5rem;
+
+}
+
+.board {
+    position: relative;
+    /* top: px; */
+
+
+}
+
+.btnBox {
+    position: relative;
+    max-height: 400px;
+    min-width: 100px;
+    min-height: 50px;
+}
+
+button {
+    background-color: #325661;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: larger;
+    font-family: sans-serif;
+    border-radius: 20px;
+    /* box-shadow: 0 0 5px #E3A835, 0 0 25px #E3A835, 0 0 50px #E3A835, 0 0 100px #E3A835; */
+
+}
+
+.btn {
+    border: none;
+    padding: 0.4rem;
+
+}
+
+.lifes {
+    display: inline-block;
+    min-width: 20px;
+    margin-left: 2.5rem;
+}
+
+.darkMode {
+    display: inline-block;
+    position: relative;
+    font-size: small;
+    width: 80px;
+    height: 25px;
+    cursor: pointer;
+    border: none;
+
+}
+
+.hints {
+    display: inline-block;
+    width: 100px;
+    /* cursor: pointer; */
+    border: none;
+    background: none;
+
+
+}
+
+table {
+    /* table-layout: auto; */
+    max-width: 600px;
+    min-width: 405px;
+    height: 500px;
+    margin: auto;
+}
+
+td {
+    pad: 0.3px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    /* min-width: 35px; */
+    text-align: center;
+    background-color: #eaa67f;
+    /* background-color: #eaa67f4f; */
+    transition: 0.5s;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+td:hover {
+    box-shadow: 0 0 5px #074e14, 0px 0px 25px #064306, 0 0 50px #129714, 0 0 100px #0a5715;
+}
+
+footer {
+    text-align: center;
+}
