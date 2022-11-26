@@ -76,14 +76,15 @@ button {
 .lifes {
     display: inline-block;
     min-width: 20px;
-
+    margin-left: 2.5rem;
 }
 
 .darkMode {
     display: inline-block;
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
+    position: relative;
+    font-size: small;
+    width: 80px;
+    height: 25px;
     cursor: pointer;
     border: none;
 
@@ -117,9 +118,9 @@ td {
     background-color: #eaa67f;
     /* background-color: #eaa67f4f; */
     transition: 0.5s;
-    font-weight:bold;
+    font-weight: bold;
     font-size: 1rem;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 td:hover {
@@ -129,4 +130,3 @@ td:hover {
 footer {
     text-align: center;
 }
-
