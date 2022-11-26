@@ -11,7 +11,9 @@ function buildBoard() {
                 minesAroundCount: null,
                 isShown: false,
                 isMine: false,
-                isMarked: false
+                isMarked: false,
+                locationI: i,
+                locationJ: j
 
             }
             board[i][j] = cell
@@ -46,7 +48,7 @@ function renderBoard(board) {
         for (var j = 0; j < board[0].length; j++) {
             var className = `cell-${i}-${j}`
             const secondClassName = ' tdCells'
-            strHTML += `<td class="${className + secondClassName}"  onmousedown="cellClicked(this, ${i}, ${j}, event)"> </td>`
+            strHTML += `<td class="${className + secondClassName}"  onmouseup="cellClicked(this, ${i}, ${j}, event)"> </td>`
 
         }
 

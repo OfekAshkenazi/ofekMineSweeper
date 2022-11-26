@@ -77,7 +77,6 @@ function renderLife() {
     if (gGame.lifes === 2) elLifeBar.innerText = '💖'
     else if (gGame.lifes === 1) elLifeBar.innerText = '💖💖'
     else if (gGame.lifes === 0) elLifeBar.innerText = '💖💖💖'
-
 }
 /// FOR LOSE GAME.
 function countLifes() {
@@ -106,15 +105,17 @@ function toggleDarkMode() {
     const whiteColor = 'white'
     const blueIsColor = '#697bf2'
     const btnColorBefore = '#325661'
-    const elCells = document.querySelectorAll('.tdCells') /// the rnder board messing me up .....so drak mode td only for one per click
+    // const elCells = document.querySelectorAll('.tdCells') /// the rnder board 
     var elContainer = document.querySelector('.gameContainer')
+    const elHintsbar = document.querySelector('.hints')
 
     if (isDarkMode === false) {
         elContainer.style.backgroundColor = `${blackIsColor}`
         elContainer.style.border = `${blackIsColor}`
         elContainer.style.boxShadow = '0 0 5px #294A52, 0 0 25px #294A52, 0 0 50px #294A52, 0 0 100px #294A52'
         elContainer.style.border = `5.5px solid #f5efe8`
-        elCells.forEach(changeBackGroundColorToDarkMode)
+        elHintsbar.style.color = '#697bf2'
+        // elCells.forEach(changeBackGroundColorToDarkMode) no looking good render board
         document.querySelector('body').style.backgroundColor = `${blackIsColor}`
         document.querySelector('.timer').style.color = `${whiteColor}`
         document.querySelector('.score').style.color = `${whiteColor}`
@@ -132,7 +133,9 @@ function toggleDarkMode() {
         elContainer.style.border = 'rgb(242, 176, 96)'
         elContainer.style.boxShadow = '0 0 5px #E3A835, 0 0 25px #E3A835, 0 0 50px #E3A835, 0 0 100px #E3A835'
         elContainer.style.border = `5.5px solid #f2b060`
-        elCells.forEach(changeBackGroundColorToLightMode)
+        elHintsbar.style.color = '#191A1C'
+
+        // elCells.forEach(changeBackGroundColorToLightMode) /// no looking good rnder board...
         document.querySelector('body').style.backgroundColor = 'rgb(147, 91, 24)'
         document.querySelector('.timer').style.color = '#051538'
         document.querySelector('.score').style.color = '#051538'
@@ -172,6 +175,7 @@ function colorByMinesCount(elCell) {
     else if (elCell.innerText === '2') elCell.style.color = 'green'
     else if (elCell.innerText === '3') elCell.style.color = 'red'
     else if (elCell.innerText === '4') elCell.style.color = 'purple'
+    else if (elCell.innerText === '5') elCell.style.color = 'yellow'
     else if (elCell.innerText === '0') {
         elCell.style.backgroundColor = '#eaa67f54'
         elCell.innerText = ''
@@ -185,6 +189,6 @@ function changeBackGroundColorToDarkMode(element) {
 }
 /// vary ty to web dev simplifles
 function changeBackGroundColorToLightMode(element) {
-    element.style.backgroundColor = '#E3A835'
+    element.style.backgroundColor = '#eaa67f'
 }
 console.log(isDarkMode)
