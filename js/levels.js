@@ -59,7 +59,7 @@ function Hints(board, x, y) {
             GhintCells.push(currCell)
         }
     }
-    setTimeout(RemoveHint, 1000)
+    setTimeout(RemoveHint, 1300)
 }
 //// done : figure how to cath this cells in more ways..
 function RemoveHint() {

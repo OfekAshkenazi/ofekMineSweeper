@@ -125,6 +125,7 @@ function toggleDarkMode() {
         document.querySelector('.btn2').style.backgroundColor = `${blueIsColor}`
         document.querySelector('.btn3').style.backgroundColor = `${blueIsColor}`
         document.querySelector('footer').style.color = `${blueIsColor}`
+        document.querySelector('.hints').style.color = '#697bf2'
         isDarkMode = true
 
 
@@ -145,6 +146,8 @@ function toggleDarkMode() {
         document.querySelector('.btn2').style.backgroundColor = `${btnColorBefore}`
         document.querySelector('.btn3').style.backgroundColor = `${btnColorBefore}`
         document.querySelector('footer').style.color = `${blackIsColor}`
+        document.querySelector('.hints').style.color = `${blackIsColor}`
+
         isDarkMode = false
 
     }

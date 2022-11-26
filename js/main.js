@@ -37,13 +37,14 @@ function cellClicked(elCell, i, j, ev) {
     if (gHints === true) {
         Hints(gBoard, i, j)
         renderHints()
-        // setTimeout(RemoveHint, 5000)
+        if (isDarkMode) {
+            document.querySelector('.hints').style.color = '#697bf2'
+        }
         return
     }
-    // if(gHintIsOn)
     countClicks++
     if (currCell.isShown || currCell.isMarked) return
-    if (ev.button === 2) return cellMarked(elCell, currCell)
+    if (ev.button === 2 && countClicks > 1) return cellMarked(elCell, currCell)
     ///// to do need to put inside return for the first num clicked will be with no  string and color becuz its supsot to be zero !'...'
     if (countClicks === 1) {
         showTimer()
@@ -51,21 +52,28 @@ function cellClicked(elCell, i, j, ev) {
         ////model
         currCell.isMine = false
         currCell.minesAroundCount = 0
+        /// dom 
+        magaExpandShown(elCell, gBoard, i, j)
+        elCell.innerText = ''
+        return
     }
 
     if (currCell.minesAroundCount === 0) return magaExpandShown(elCell, gBoard, i, j)
     // if (currCell.isMarked) return
     if (currCell.isMine) {
+        /// model
         currCell.isShown = true
-        elCell.innerText = MINE
-        elCell.style.backgroundColor = '#CC0C1F'
         gGame.shownCount++
         gGame.lifes++
+        //// dom
+        elCell.innerText = MINE
+        elCell.style.backgroundColor = '#CC0C1F'
+        elCell.style.boxShadow = 'none'
         countLifes()
         renderLife()
         showCount()
         checkGameOver()
-        console.log(gGame.lifes)
+        // console.log(gGame.lifes)
         return
     }
     currCell.isShown = true
@@ -82,17 +90,26 @@ function cellClicked(elCell, i, j, ev) {
 
 function cellMarked(elCell, cell) {
     if (!cell.isMarked) {
+        /// model
         cell.isMarked = true
         cell.isShown = true
-        elCell.innerHTML = flag
         gGame.markedCount++
+        ///// dom
+        elCell.innerHTML = flag
+        elCell.style.boxShadow = 'none'
+
         showCount()
         checkGameOver()
     } else {
+        //// model
         cell.isMarked = false
         cell.isShown = false
-        elCell.innerHTML = ''
         gGame.markedCount--
+        ///dom
+        elCell.innerHTML = ''
+        elCell.style.boxShadow = '0 0 5px #074e14, 0px 0px 25px #064306, 0 0 50px #129714, 0 0 100px #0a5715'
+
+
         showCount()
 
     }
@@ -106,10 +123,11 @@ function expandShown(board, x, y) {
         for (var j = y - 1; j <= y + 1; j++) {
             if (j < 0 || j >= board[i].length) continue;
             if (board[i][j].isShown || board[i][j].isMarked || board[i][j].isMine) continue
-            // if (board[i][j].minesAroundCount >= 2) continue
             var elCell = document.querySelector(`.cell-${i}-${j}`)
+            /// model
             gGame.shownCount++
             board[i][j].isShown = true
+            /// dom
             elCell.innerHTML = NegsCount(i, j, board)
             colorByMinesCount(elCell)
             if (!board[i][j].minesAroundCount) expandShown(board, i, j)
@@ -122,15 +140,16 @@ function expandShown(board, x, y) {
 // function for checking win 
 function checkGameOver() {
     if (gGame.shownCount + gGame.markedCount === gLevel.size * gLevel.size) {
+        /// model
         gGame.isOn = false
+        ///dom
         win()
         clearInterval(gIntervald)
     }
 
 }
-//// function that fix some style ... it was havy on the cellClicket function 
+//// function that fix some style 
 function magaExpandShown(elCell, board, i, j) {
-    // gGame.shownCount++
     elCell.style.innerText = ''
     elCell.style.backgroundColor = '#eaa67f54'
     elCell.style.boxShadow = 'none'
