@@ -24,10 +24,11 @@ function lvlUpdate(elBtn) {
     restGame()
 
 }
+
 ///// working but i need to more work on it done!!! done! : give only 3 clues and render them like life :)
 function Hints(board, x, y) {
     console.log(gHintsCount)
-    
+
     if (countClicks === 0) {
         alert('you cant use a clue on the start!')
         return
@@ -35,8 +36,8 @@ function Hints(board, x, y) {
     if (gHintsCount > 6) {
         alert('you dont have any more clues')
         return
-        
-    } 
+
+    }
     gHintsCount++
     GhintCells = []
     gHints = true
@@ -66,7 +67,8 @@ function RemoveHint() {
     // console.log(hintCells)
     for (var i = 0; i < GhintCells.length; i++) {
         var currCell = GhintCells[i]
-        var elCell = document.querySelector(`.cell-${currCell.locationI}-${currCell.locationJ}`)        /// model
+        var elCell = document.querySelector(`.cell-${currCell.locationI}-${currCell.locationJ}`)
+        /// model
         currCell.isShown = false
         /// dom
         elCell.innerText = ''
@@ -84,7 +86,7 @@ function RemoveHint() {
 /// working , for rendin the clues innerText
 function renderHints() {
     const elHintsbar = document.querySelector('.hints')
-    elHintsbar.innerText ='No More'
+    elHintsbar.innerText = 'No More'
     elHintsbar.style.color = '#191A1C'
     if (gHintsCount === 4) elHintsbar.innerText = '💡'
     else if (gHintsCount === 2) elHintsbar.innerText = '💡💡'

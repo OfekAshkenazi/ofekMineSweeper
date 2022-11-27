@@ -1,6 +1,6 @@
 'use strict'
 console.log('sprint :)')
-window.addEventListener("contextmenu", e => e.preventDefault());
+// window.addEventListener("contextmenu", e => e.preventDefault());
 const MINE = '💣'
 const flag = '🚩'
 var gIntervald
@@ -9,7 +9,6 @@ var gBoard
 var cell
 var gHints = false
 var gHintsCount = 0
-// var gHintIsOn = false  not working yet
 var gGame = {
     isOn: true,
     shownCount: 0,
@@ -134,7 +133,6 @@ function expandShown(board, x, y) {
             showCount()
 
         }
-        ///// i hate this function have a good day !
     }
 }
 // function for checking win 

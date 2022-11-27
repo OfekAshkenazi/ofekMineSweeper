@@ -27,6 +27,7 @@ function buildBoard() {
     console.log(board)
     return board
 }
+
 //// function that recuerse negstocount for giving the model datas on mines around
 function setMinesNegsCount(board) {
     for (var i = 0; i < board.length; i++) {

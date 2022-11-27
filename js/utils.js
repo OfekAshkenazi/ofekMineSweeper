@@ -1,8 +1,6 @@
 'use strict'
 var isDarkMode = false
 
-
-
 //// get random 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
